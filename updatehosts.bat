@@ -1,6 +1,6 @@
 # ===================================================================
 #
-# (UPDATE HOSTS)  by Reddit/u/AranciataExcess
+# (UPDATE HOSTS)  by https://github.com/AranciataExcess/
 # Downloads HOST file and copies to %Windir%\System32\drivers\etc 
 #
 # Part of Nightly Scheduled Task at 12.01AM 
@@ -9,7 +9,9 @@
 #
 # 
 # BEGIN SCRIPT
+#
 # ------------------------------------------------------------------
+#
 # Copy HOSTS from https://github.com/StevenBlack/hosts
 ECHO Downloading updated HOSTS from Github
 PowerShell.exe -Command "& '%~dpn0.ps1'"
@@ -24,10 +26,9 @@ REN %hostpath%\hosts hosts.back
 COPY "%~dp0hosts" %hostpath%\hosts
 #
 # ------------------------------------------------------------------
-# Update the log after completion
-echo %DATE%_%TIME% Processing %%f >> update.log
-ECHO Successful! HOSTS file updated
+#
+# Create a running scheduled task to download and update
+SchTasks /Create /SC WEEKLY /D MON,TUE,WED,THU,FRI /TN UpdateHosts /TR C:\UpdateHosts\updatehosts.bat /ST 02:00
 @PAUSE
 # 
-#
 # END SCRIPT
