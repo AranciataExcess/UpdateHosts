@@ -11,6 +11,10 @@ Script for automating update of HOSTS file in Windows using DOS and Powershell t
 Contents
 _____________
 
-updatehosts.bat - dos script  downloading and updating hosts in Windows 
+* "UpdateHosts.zip" Extract this to your C:\ drive
 
-updatehosts.ps1 - powershell script for downloading hosts (called by batch file)
+
+Contains;
+
+* updatehosts.bat - dos script  downloading and updating hosts in Windows 
+* updatehosts.ps1 - powershell script for downloading hosts (called by batch file)
